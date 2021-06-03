@@ -30,23 +30,23 @@ public class SysDefaultsRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-//		Optional<User> user = userRepository.findByEmail("test@admin.com");
-//
-//		if (!user.isPresent()) {
-//
-//			User newUser = new User();
-//			newUser.setEmail("test@admin.com");
-//			newUser.setFirstName("Admin");
-//			newUser.setLastName("aDM");
-//			newUser.setPassword(passwordEncoder.encode("123890test"));
-//			newUser.setPhoneNumber("254723456789");
-//			newUser.setRole(Role.ROLE_USER);
-//			
-//			//userRepository.save(newUser);
-//			
-//			logger.info("default user created");
-//
-//		}
+		Optional<User> user = userRepository.findByEmail("test@admin.com");
+
+		if (!user.isPresent()) {
+
+			User newUser = new User();
+			newUser.setEmail("test@admin.com");
+			newUser.setFirstName("Admin");
+			newUser.setLastName("aDM");
+			newUser.setPassword(passwordEncoder.encode("123890test"));
+			newUser.setPhoneNumber("254723456789");
+			newUser.setRole(Role.ROLE_USER);
+			
+			userRepository.save(newUser);
+			
+			logger.info("default user created");
+
+		}
 
 	}
 

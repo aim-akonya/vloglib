@@ -30,9 +30,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/oauth/token").permitAll()
-				.antMatchers("/swagger-ui/**").permitAll().antMatchers("/v3/**").permitAll().antMatchers("/dmz/**")
-				.permitAll().antMatchers("/api/**").hasAnyAuthority("ROLE_USER").anyRequest().authenticated().and()
-				.exceptionHandling().authenticationEntryPoint(customAuthenticationEntryPoint)
+				.antMatchers("/v1/api-docs/**").permitAll().antMatchers("/swagger-ui/**").permitAll()
+				.antMatchers("/v3/**").permitAll().antMatchers("/dmz/**").permitAll().antMatchers("/api/**")
+				.hasAnyAuthority("ROLE_USER").anyRequest().authenticated().and().exceptionHandling()
+				.authenticationEntryPoint(customAuthenticationEntryPoint)
 				.accessDeniedHandler(new OAuth2AccessDeniedHandler());
 	}
 
